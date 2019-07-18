@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', "UserController@getTrangChu");
+
+Route::get('dang-nhap', "UserController@getDangNhap");
+Route::post('dang-nhap', "UserController@postDangNhap");
