@@ -13,5 +13,6 @@
 
 //Route::get('/', "UserController@getTrangChu");
 
-Route::get('dang-nhap', "UserController@getDangNhap");
-Route::post('dang-nhap', "UserController@postDangNhap");
+//Route::get('dang-nhap', "UserController@getDangNhap");
+Route::get('dang-nhap', "UserController@postDangNhap");
+Route::get('dang-ky', "UserController@postDangKy");

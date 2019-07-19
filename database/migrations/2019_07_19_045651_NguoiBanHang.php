@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class User extends Migration
+class NguoiBanHang extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,12 @@ class User extends Migration
      */
     public function up()
     {
-        Schema::create('User', function (Blueprint $table) {
+        Schema::create('NguoiBanHang', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email');
+            $table->string('username');
             $table->string('password');
             $table->string('hoTen');
+            $table->string('email');
             $table->string('diaChi');
             $table->string('sdt');
             $table->integer('level');
@@ -31,6 +32,6 @@ class User extends Migration
      */
     public function down()
     {
-        Schema::drop('User');
+        Schema::drop('NguoiBanHang');
     }
 }
