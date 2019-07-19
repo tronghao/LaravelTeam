@@ -10,6 +10,7 @@ use App\UserModel;
 
 class UserController extends Controller
 {
+
 	function getDangNhap()
 	{
 		return view("home");
@@ -45,7 +46,7 @@ class UserController extends Controller
     		else
     		{
     			//$level = $kt->getUserLevel($rq->tenDangNhap, $rq->pass);
-    			$level = $kt->getUserLevel($data["email"],$data["password"]);
+    			$level = $kt->getUserLevel($data["email"]);
     			
     			if($level == 1)
     			{
@@ -77,6 +78,9 @@ class UserController extends Controller
                     "sdt" => "0003330002",
                     "level" => 0,
                     );
+        /*
+            Lấy level
+         */
         $kt = new UserModel;
         $kiemTraUserTonTai = $kt->issetUser($data["email"]);
 
