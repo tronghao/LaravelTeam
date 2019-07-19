@@ -18,7 +18,7 @@ class UserController extends Controller
     function postDangNhap(request $rq)
     {
     	$kt = new UserModel;
-    	$kq = $kt->getUserDangNhap($rq->tenDangNhap, $rq->Password);
+    	$kq = $kt->getUserDangNhap($rq->tenDangnhap, $rq->Password);
     	
     	if($kq == 0)
     	{
@@ -28,7 +28,7 @@ class UserController extends Controller
     	else
     	{
 
-    		if($rq->tenDangNhap == "admin")
+    		if($rq->tenDangnhap == "admin")
     		{
     			$rq->Session()->put('user','admin');
     			//return redirect("admin/home");
@@ -37,7 +37,7 @@ class UserController extends Controller
     		else
     		{
     			//$level = $kt->getUserLevel($rq->tenDangNhap, $rq->pass);
-    			$user = $kt->getUserLevel($rq->tenDangNhap, $rq->Password);
+    			$user = $kt->getUserLevel($rq->tenDangnhap, $rq->Password);
     			
     			if($user[0]['level'] == 1)
     			{
