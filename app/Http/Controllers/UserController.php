@@ -64,6 +64,11 @@ class UserController extends Controller
     	}
     }
 
+    function getDangKy()
+    {
+        return view('dangky');
+    }
+
     function postDangKy()
     {
         $data = array(

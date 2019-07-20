@@ -15,5 +15,5 @@
 
 Route::get('dang-nhap', "UserController@getDangNhap");
 Route::post('dang-nhap', "UserController@postDangNhap");
-Route::get('dang-ky', "UserController@postDangKy");
+Route::get('dang-ky', "UserController@getDangKy");
 Route::get('them-san-pham', "SanPhamController@addSanPham");
