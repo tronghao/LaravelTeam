@@ -26,11 +26,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<h1 class="logo-w3">Mua Hàng Online</h1>
 			<div class="w3layouts-main">
 				<h2><span>Đăng nhập ngay</span></h2>
-				<div class="social">
-					<a href="#">Login With Facebook</a>
-				</div>
-					<h3>(or)</h3>
-
+				
 					<form action="{{ asset('dang-nhap') }}" method="post">
 						{{ csrf_field() }}
 						<input placeholder="Email" name="tenDangnhap" type="email" required="">

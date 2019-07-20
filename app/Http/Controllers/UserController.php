@@ -10,6 +10,10 @@ use App\UserModel;
 
 class UserController extends Controller
 {
+    function getTrangChu()
+    {
+        return view("trangchu");
+    }
 
 	function getDangNhap()
 	{
@@ -42,6 +46,7 @@ class UserController extends Controller
             if($data["email"] == "admin@admin.com")
     		{
     			$rq->Session()->put('user','admin');
+                $rq->Session()->put('idUser', $kt->getIdUser($data["email"]));
     			//return redirect("admin/home");
     			echo "admin";
     		}
@@ -54,10 +59,13 @@ class UserController extends Controller
     			
     			if($level == 1)
     			{
-    				//$rq->Session()->put('user',$rq->tenDangNhap);
+    				$rq->Session()->put('user',"NguoiBanHang");
+                    $rq->Session()->put('idUser', $kt->getIdUser($data["email"]));
     				echo "Người Bán Hàng";
     			}else
     			{
+                    $rq->Session()->put('user',"NguoiMuaHang");
+                    $rq->Session()->put('idUser', $kt->getIdUser($data["email"]));
     				echo "Người mua hàng";
     			}
     		}
@@ -69,23 +77,25 @@ class UserController extends Controller
         return view('dangky');
     }
 
-    function postDangKy()
+    function postDangKy(request $rq)
     {
         $data = array(
-                    /*
-                    "email" => "",
-                    "matKhau" => "",
-                    "hoTen" => "",
-                    "diaChi" => "",
-                    "sdt" => "",
+                    
+                    "email" => $rq->email,
+                    "matKhau" => $rq->password,
+                    "hoTen" => $rq->firstname." ".$rq->lastname,
+                    "diaChi" => $rq->diachi,
+                    "sdt" => $rq->sdt,
                     "level" => 0,
-                    */
+                    
+                    /*
                     "email" => "tr@gmail.com",
                     "matKhau" => "123456",
                     "hoTen" => "ABC",
                     "diaChi" => "123 VN",
                     "sdt" => "0003330002",
                     "level" => 0,
+                    */
                     );
         /*
             Lấy level

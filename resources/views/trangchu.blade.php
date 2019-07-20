@@ -12,8 +12,8 @@
 		
 	</head>
 	<body>
-		<a href="#">Đăng Ký</a>
-		<a href="#">Đăng Nhập</a>
+		<a href="{{ asset('dang-ky') }}">Đăng Ký</a>
+		<a href="{{ asset('dang-nhap') }}">Đăng Nhập</a>
 		<h1 class="text-center">Trang Chủ</h1>
 
 		<!-- jQuery -->

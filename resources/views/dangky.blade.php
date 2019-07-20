@@ -21,7 +21,8 @@
 	    </div>
 	    <!--loginheader-->
 	    <div class="loginform">
-	      <form id="login" action="" method="post">
+	      <form id="login" action="{{ asset("dang-ky") }}" method="post">
+	      	{{ csrf_field() }}
 	        <p>
 	          <input type="text" id="firstname" name="firstname" placeholder="First Name" value="" class="radius mini" />
 	          <input type="text" id="lastname" name="lastname" placeholder="Last Name" value="" class="radius mini" />

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserModel extends Model
 {
     protected $table = 'User';
-    protected $fillable = ['id','password', 'hoTen','email'];
+    protected $fillable = ['id','password', 'hoTen', 'email', ''];
     public $timestamps = false;
 
     public function getUserDangNhap($email, $pass)
@@ -24,9 +24,15 @@ class UserModel extends Model
         else return false;
     }
 
-    public function getUserLevel($email, $pass)
+    public function getUserLevel($email)
     {
-    	$kq = UserModel::whereRaw('email = ? and password = ?', [$email, $pass])->select('level')->get();
+    	$kq = UserModel::whereRaw('email', '=', $email)->select('level')->get();
     	return $kq[0]["level"];
+    }
+
+    public function getIdUser($email)
+    {
+        $kq = UserModel::where('email', '=' , $email)->select('id')->get();
+        return $kq[0]["id"];
     }
 }
