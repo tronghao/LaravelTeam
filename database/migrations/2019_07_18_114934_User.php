@@ -14,10 +14,11 @@ class User extends Migration
     {
         Schema::create('User', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username');
+            $table->string('email');
             $table->string('password');
             $table->string('hoTen');
-            $table->string('email');
+            $table->string('diaChi');
+            $table->string('sdt');
             $table->integer('level');
             $table->timestamps();
         });

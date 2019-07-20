@@ -10,6 +10,7 @@ use App\UserModel;
 
 class UserController extends Controller
 {
+
 	function getDangNhap()
 	{
 		return view("home");
@@ -17,8 +18,18 @@ class UserController extends Controller
 
     function postDangNhap(request $rq)
     {
+        $data = array(
+                    
+                    "email" => $rq->tenDangnhap,
+                    "password" =>  $rq->Password
+                    
+                    /*"email" => "110117051@sv.tvu.edu.vn",
+                    "password" => "123456"*/
+                );
     	$kt = new UserModel;
-    	$kq = $kt->getUserDangNhap($rq->tenDangnhap, $rq->Password);
+
+    	$kq = $kt->getUserDangNhap($data["email"],$data["password"]);
+
     	
     	if($kq == 0)
     	{
@@ -28,7 +39,7 @@ class UserController extends Controller
     	else
     	{
 
-    		if($rq->tenDangnhap == "admin")
+            if($data["email"] == "admin@admin.com")
     		{
     			$rq->Session()->put('user','admin');
     			//return redirect("admin/home");
@@ -37,9 +48,11 @@ class UserController extends Controller
     		else
     		{
     			//$level = $kt->getUserLevel($rq->tenDangNhap, $rq->pass);
-    			$user = $kt->getUserLevel($rq->tenDangnhap, $rq->Password);
+
+    			$level = $kt->getUserLevel($data["email"]);
+
     			
-    			if($user[0]['level'] == 1)
+    			if($level == 1)
     			{
     				//$rq->Session()->put('user',$rq->tenDangNhap);
     				echo "Người Bán Hàng";
@@ -49,6 +62,48 @@ class UserController extends Controller
     			}
     		}
     	}
+    }
+
+    function postDangKy()
+    {
+        $data = array(
+                    /*
+                    "email" => "",
+                    "matKhau" => "",
+                    "hoTen" => "",
+                    "diaChi" => "",
+                    "sdt" => "",
+                    "level" => 0,
+                    */
+                    "email" => "tr@gmail.com",
+                    "matKhau" => "123456",
+                    "hoTen" => "ABC",
+                    "diaChi" => "123 VN",
+                    "sdt" => "0003330002",
+                    "level" => 0,
+                    );
+        /*
+            Lấy level
+         */
+        $kt = new UserModel;
+        $kiemTraUserTonTai = $kt->issetUser($data["email"]);
+
+        if($kiemTraUserTonTai == true)
+        {
+            echo "Dang Ky That Bai";
+        }
+        else
+        {
+            $user = new UserModel();
+            $user->email = $data["email"];
+            $user->password = $data["matKhau"];
+            $user->hoTen = $data["hoTen"];
+            $user->diaChi = $data["diaChi"];
+            $user->sdt = $data["sdt"];
+            $user->level = $data["level"];
+            $user->save();
+            echo "Dang Ky THanh Cong!";
+        }
     }
 
     function getDangXuat(request $rq)

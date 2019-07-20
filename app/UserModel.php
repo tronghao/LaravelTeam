@@ -10,15 +10,23 @@ class UserModel extends Model
     protected $fillable = ['id','password', 'hoTen','email'];
     public $timestamps = false;
 
-    public function getUserDangNhap($user, $pass)
+    public function getUserDangNhap($email, $pass)
     {
-    	$kq = UserModel::whereRaw('username = ? and password = ?', [$user, $pass])->get()->count();
+    	$kq = UserModel::whereRaw('email = ? and password = ?', [$email, $pass])->get()->count();
     	return $kq;
     }
 
-    public function getUserLevel($user, $pass)
+    public function issetUser($email)
     {
-    	$kq = UserModel::whereRaw('username = ? and password = ?', [$user, $pass])->get();
-    	return $kq;
+        $kq = UserModel::where('email', '=', $email)->get()->count();
+        if($kq != 0)
+            return true;
+        else return false;
+    }
+
+    public function getUserLevel($email, $pass)
+    {
+    	$kq = UserModel::whereRaw('email = ? and password = ?', [$email, $pass])->select('level')->get();
+    	return $kq[0]["level"];
     }
 }
