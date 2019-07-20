@@ -9,6 +9,8 @@ fieldset, form, label, legend {
   padding: 0;
   vertical-align: baseline;
   font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(to right top, #393d43, #2d3437, #242b2b, #1d211f, #171815);
+  
 }
  
 h2 { 
@@ -99,6 +101,7 @@ h2 {
   font-weight:normal; 
   text-align:center; 
   font-size:16px; 
+  margin: 10px;
 }
  
 @media screen and (max-width: 430px) {
@@ -111,14 +114,7 @@ h2 {
   .loginbox button { width: 100%; }
 }
  
-#facebook-Bar {
-  background:#45619D;
-  border-bottom: 1px solid #0053A6;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.52);
-  min-width: 1000px;
-  width: 100%;
-  z-index: 1000;
-}
+
  
 #facebook-Frame {
   margin-left:auto;
@@ -200,4 +196,4 @@ h2 {
   line-height:25px; 
   font-weight:normal; 
   color:#fff; 
-}s
+}
