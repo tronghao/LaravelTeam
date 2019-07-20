@@ -30,11 +30,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<a href="#">Login With Facebook</a>
 				</div>
 					<h3>(or)</h3>
-<<<<<<< HEAD
+
 					<form action="{{ asset('dang-nhap') }}" method="post">
-=======
-					<form action="{{ asset('dang-nhap')}}" method="post">
->>>>>>> 50266b81e65c5eee4099ecf0911fbca2500fb8a6
 						{{ csrf_field() }}
 						<input placeholder="Username or Email" name="tenDangnhap" type="text" required="">
 						<input placeholder="Password" name="Password" type="password" required="">
