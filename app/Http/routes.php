@@ -24,6 +24,7 @@ Route::group(['prefix'=>'ban-hang'], function(){
 	Route::get('home', 'NguoiBanHangController@home');
 	Route::get('them-san-pham', "NguoiBanHangController@getAddSanPham");
 	Route::post('them-san-pham', "NguoiBanHangController@postAddSanPham");
-	Route::get('sua-san-pham/{id}', "NguoiBanHangController@editSanPham");
+	Route::get('sua-san-pham/{id}', "NguoiBanHangController@getViewEditSanPham");
+	Route::post('sua-san-pham/{id}', "NguoiBanHangController@editSanPham");
 	Route::get('xoa-san-pham/{id}', "NguoiBanHangController@deleteSanPham");
 });

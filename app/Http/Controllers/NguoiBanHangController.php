@@ -72,24 +72,26 @@ class NguoiBanHangController extends Controller
     }
 
 
-    public function getViewEditSanPham()
+    public function getViewEditSanPham($id, request $rq)
     {
-
+    	$kt = new SanPhamModel();
+    	$kq['duLieu'] = $kt->getSanPhamById($rq->session()->get('idUser'), $id);
+    	return view('nguoi-ban-hang.sua-san-pham')->with($kq);
     }
 
     public function editSanPham($id, request $rq)
     {
     	$data = array(
-    					/*
+    					
     					'idUser' => $rq->session()->get('idUser'), 
-    					'name' => '',
-    					'moTa' => '',
-    					'srcImg' => '',
-    					'giaKhuyenMai' => '',
-    					'giaGoc' => '',
-    					'soLuong' => '',
-    					'thuongHieu' => '',
-						*/
+    					'name' => $rq->name,
+    					'moTa' => $rq->moTa,
+    					'srcImg' => $rq->srcImg,
+    					'giaKhuyenMai' => $rq->giaKhuyenMai,
+    					'giaGoc' => $rq->giaGoc,
+    					'soLuong' => $rq->soLuong,
+    					'thuongHieu' => $rq->thuongHieu,
+						/*
     					'idUser' => 1, 
     					'name' => 'Điện Thoại IPhone X',
     					'moTa' => 'Đây là chiếc điện thoại mới nhất',
@@ -97,10 +99,25 @@ class NguoiBanHangController extends Controller
     					'giaKhuyenMai' => '1499000',
     					'giaGoc' => '1500000',
     					'soLuong' => 20,
-    					'thuongHieu' => 'Apple',
+    					'thuongHieu' => 'Apple',*/
     				);
 
-    	$cate = SanPhamModel::find($id);
+    	/*
+    		kiểm tra tồn tại
+    	*/
+    	$kt = new SanPhamModel();
+    	//$kq = $kt->issetSanPham($data["idUser"], $data["name"]);
+    	$kq = $kt->getSanPhamById($data["idUser"], $id);
+    	if($kq[0]['name'] != $data['name'])
+    	{
+    		$kq2 = $kt->issetSanPham($data["idUser"], $data["name"]);
+    		if($kq2 != 0)
+    		{
+    			return view('nguoi-ban-hang.sua-san-pham')->with('info', 'Tên sản phẩm  đã tồn tại');
+    		}    		
+    	}
+    	
+       	$cate = SanPhamModel::find($id);
     	$cate->name = $data["name"];
     	$cate->moTa = $data["moTa"];
     	$cate->srcImg = $data["srcImg"];
@@ -109,7 +126,8 @@ class NguoiBanHangController extends Controller
     	$cate->soLuong = $data["soLuong"];
     	$cate->thuongHieu = $data["thuongHieu"];
     	$cate->save();
-    	echo "thành công";
+    	return view('nguoi-ban-hang.sua-san-pham')->with('info', "Sửa Thành Công");
+	    
     }
 
     public function deleteSanPham($id)
