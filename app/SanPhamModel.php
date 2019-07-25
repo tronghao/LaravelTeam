@@ -13,11 +13,18 @@ class SanPhamModel extends Model
     public function issetSanPham($idUser, $name)
     {
     	$kt = new SanPhamModel();
-    	$kt->whereRaw("idUser = ? and name = ?", [$idUser, $name])->get()->count();
-    	if($kt != 0)
+    	$kq = $kt->whereRaw("idUser = ? and name = ?", [$idUser, $name])->get()->count();
+    	if($kq != 0)
     	{
     		return true;
     	}
     	else return false;
+    }
+
+    public function getAllSanPhamCuaUser($idUser)
+    {
+        $kt = new SanPhamModel();
+        $kq = $kt->whereRaw("idUser = ?", [$idUser])->get()->toArray();
+        return $kq;
     }
 }

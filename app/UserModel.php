@@ -26,7 +26,7 @@ class UserModel extends Model
 
     public function getUserLevel($email)
     {
-    	$kq = UserModel::whereRaw('email', '=', $email)->select('level')->get();
+    	$kq = UserModel::where('email', '=', $email)->select('level')->get();
     	return $kq[0]["level"];
     }
 

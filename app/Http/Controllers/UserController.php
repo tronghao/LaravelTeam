@@ -61,7 +61,7 @@ class UserController extends Controller
     			{
     				$rq->Session()->put('user',"NguoiBanHang");
                     $rq->Session()->put('idUser', $kt->getIdUser($data["email"]));
-    				echo "Người Bán Hàng";
+                    return redirect('ban-hang/home');
     			}else
     			{
                     $rq->Session()->put('user',"NguoiMuaHang");
@@ -97,6 +97,8 @@ class UserController extends Controller
                     "level" => 0,
                     */
                     );
+        if(isset($rq->nguoiban))
+            $data["level"] = 1;
         /*
             Lấy level
          */
@@ -121,7 +123,7 @@ class UserController extends Controller
         }
     }
 
-    function getDangXuat(request $rq)
+    function DangXuat(request $rq)
     {
     	$rq->Session()->flush();
     	return redirect('');

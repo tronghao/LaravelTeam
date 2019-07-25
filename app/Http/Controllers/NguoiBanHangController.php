@@ -6,13 +6,21 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\UserModel;
 use App\SanPhamModel;
 
-class SanPhamController extends Controller
+class NguoiBanHangController extends Controller
 {
+    public function home(request $rq)
+    {
+    	$kt = new SanPhamModel();
+    	$data['duLieu'] = $kt->getAllSanPhamCuaUser($rq->session()->get('idUser'));
+    	return view('nguoi-ban-hang.nguoi-ban-hang')->with($data);
+    }
+
     public function getAddSanPham()
     {
-        return view();
+        return view('nguoi-ban-hang.them-san-pham');
     }
 
     public function postAddSanPham(request $rq)
@@ -20,13 +28,13 @@ class SanPhamController extends Controller
     	$data = array(
     					
     					'idUser' => $rq->session()->get('idUser'), 
-    					'name' => '',
-    					'moTa' => '',
-    					'srcImg' => '',
-    					'giaKhuyenMai' => '',
-    					'giaGoc' => '',
-    					'soLuong' => '',
-    					'thuongHieu' => '',
+    					'name' => $rq->name,
+    					'moTa' => $rq->moTa,
+    					'srcImg' => $rq->srcImg,
+    					'giaKhuyenMai' => $rq->giaKhuyenMai,
+    					'giaGoc' => $rq->giaGoc,
+    					'soLuong' => $rq->soLuong,
+    					'thuongHieu' => $rq->thuongHieu,
 						/*
     					'idUser' => 1, 
     					'name' => 'Điện Thoại IPhone',
@@ -41,11 +49,11 @@ class SanPhamController extends Controller
     		kiểm tra IdUser và name có tồn tại không
     	 */
     	$kt = new SanPhamModel();
-    	$kq = $Kt->issetSanPham($data["idUser"], $data["name"]);
+    	$kq = $kt->issetSanPham($data["idUser"], $data["name"]);
 
     	if($kq == true)
     	{
-    		echo "Tồn tại";
+    		return view('nguoi-ban-hang.them-san-pham')->with('info', 'Đã tồn tại sản phẩm');
     	}
     	else
     	{
@@ -59,8 +67,14 @@ class SanPhamController extends Controller
 	    	$cate->soLuong = $data["soLuong"];
 	    	$cate->thuongHieu = $data["thuongHieu"];
 	    	$cate->save();
-	    	echo "Thành Công";
+	    	return view('nguoi-ban-hang.them-san-pham')->with('info', 'Thành Công');
     	}
+    }
+
+
+    public function getViewEditSanPham()
+    {
+
     }
 
     public function editSanPham($id, request $rq)
@@ -102,5 +116,6 @@ class SanPhamController extends Controller
     {
     	$cate = new SanPhamModel();
     	$cate->destroy($id);
+    	return redirect('ban-hang/home');
     }
 }

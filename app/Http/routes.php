@@ -15,7 +15,15 @@ Route::get('/', "UserController@getTrangChu");
 Route::get('dang-nhap', "UserController@getDangNhap");
 Route::post('dang-nhap', "UserController@postDangNhap");
 Route::get('dang-ky', "UserController@getDangKy");
-Route::get('them-san-pham', "SanPhamController@addSanPham");
+Route::post('dang-ky', "UserController@postDangKy");
+Route::get('dang-xuat', "UserController@dangXuat");
 
-Route::get('test-sua/{id}', "SanPhamController@editSanPham");
-Route::get('test-xoa/{id}', "SanPhamController@deleteSanPham");
+
+
+Route::group(['prefix'=>'ban-hang'], function(){
+	Route::get('home', 'NguoiBanHangController@home');
+	Route::get('them-san-pham', "NguoiBanHangController@getAddSanPham");
+	Route::post('them-san-pham', "NguoiBanHangController@postAddSanPham");
+	Route::get('sua-san-pham/{id}', "NguoiBanHangController@editSanPham");
+	Route::get('xoa-san-pham/{id}', "NguoiBanHangController@deleteSanPham");
+});

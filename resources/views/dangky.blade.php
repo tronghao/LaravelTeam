@@ -14,15 +14,15 @@
 	<body>
 <!-- header ends here -->
 		<div class="loginbox radius">
-	  	<h2 style="color:#FEFEFE; text-align:center;">Chào mừng bạn đến trang bán hàng online của chúng tôi</h2>
+	  	<h2 style="color:#044723; text-align:center;">Chào mừng bạn đến trang bán hàng online của chúng tôi</h2>
 	  	<div class="loginboxinner radius">
 	    <div class="loginheader">
 	      <h4 class="title"> Kinh doanh chia sẻ -  đem lại lợi ích cộng đồng</h4>
 	    </div>
 	    <!--loginheader-->
 	    <div class="loginform">
-	      <form id="login" action="{{ asset("dang-ky") }}" method="post">
-	      	{{ csrf_field() }}
+	      <form id="login" action="" method="post" onsubmit="return kiemTra()">
+			{{ csrf_field() }}
 	        <p>
 	          <input type="text" id="firstname" name="firstname" placeholder="First Name" value="" class="radius mini" />
 	          <input type="text" id="lastname" name="lastname" placeholder="Last Name" value="" class="radius mini" />
@@ -40,7 +40,14 @@
 	          <input type="number" id="sdt" name="sdt" placeholder="Số điện thoại của bạn" class="radius" />
 	        </p>
 	        <p>
-	          <button class="radius title" name="signup">Gửi</button>
+		  <div class="checkbox">
+		  	<p>Bạn đăng ký tài khoản của bạn làm:</p>
+	      	<label><input type="checkbox" id="nguoiban" name ="nguoimua" value="">Người mua</label>
+	    </div>
+	    <div class="checkbox">
+	      <label><input type="checkbox" id="nguoimua" name ="nguoiban" value="">Người bán</label>
+	    </div>
+	          <button id="submit" class="radius title" name="signup">Gửi</button>
 	        </p>
 	      </form>
 	    </div>
@@ -48,6 +55,35 @@
 	  </div>
 	  <!--loginboxinner-->
 	</div>
+	<link rel="stylesheet" type="text/javacript">
+	<script>
+		function kiemTra()
+		{
+			var dem = 0;
+			var nguoiBan = document.getElementById("nguoiban");
+			var nguoiMua = document.getElementById("nguoimua");
+
+			if(nguoiBan.checked == true)
+				dem++;
+			if(nguoiMua.checked == true)
+				dem++;
+
+			if(dem==2)
+			{
+				window.alert("Không thể check cả hai");
+			}
+			else if(dem == 0)
+			{
+				window.alert("phải check 1 trong hai");
+			}
+			else if(dem==1)
+			{
+				return true;
+			}
+			return false;
+		}
+			
+    </script>
 <!--loginbox-->
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
