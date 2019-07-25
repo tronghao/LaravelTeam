@@ -16,6 +16,15 @@
 		<a href="{{ asset('dang-nhap') }}">Đăng Nhập</a>
 		<h1 class="text-center">Trang Chủ</h1>
 
+		@foreach($duLieu as $value)
+			<pre>
+				@php
+					print_r($value)
+				@endphp
+			</pre>
+			<a href="{{ asset('ban-hang/sua-san-pham/'.$value["id"]) }}">Mua</a>
+			<br/>
+		@endforeach
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->

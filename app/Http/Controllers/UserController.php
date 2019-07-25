@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\UserModel;
+use App\SanPhamModel;
 
 class UserController extends Controller
 {
     function getTrangChu()
     {
-        return view("trangchu");
+        $kt = new SanPhamModel();
+        $kq["duLieu"] = $kt->all()->sortByDesc('id')->toArray();
+        return view("trangchu")->with($kq);
     }
 
 	function getDangNhap()
