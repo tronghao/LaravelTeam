@@ -11,19 +11,19 @@ use App\SanPhamModel;
 
 class UserController extends Controller
 {
-    function getTrangChu()
+    public function getTrangChu()
     {
         $kt = new SanPhamModel();
         $kq["duLieu"] = $kt->all()->sortByDesc('id')->toArray();
         return view("trangchu")->with($kq);
     }
 
-	function getDangNhap()
+	public function getDangNhap()
 	{
 		return view("home");
 	}
 
-    function postDangNhap(request $rq)
+    public function postDangNhap(request $rq)
     {
         $data = array(
                     
@@ -69,18 +69,18 @@ class UserController extends Controller
     			{
                     $rq->Session()->put('user',"NguoiMuaHang");
                     $rq->Session()->put('idUser', $kt->getIdUser($data["email"]));
-    				echo "Người mua hàng";
+    				return redirect('mua-hang/home');
     			}
     		}
     	}
     }
 
-    function getDangKy()
+    public function getDangKy()
     {
         return view('dangky');
     }
 
-    function postDangKy(request $rq)
+    public function postDangKy(request $rq)
     {
         $data = array(
                     
@@ -126,9 +126,17 @@ class UserController extends Controller
         }
     }
 
-    function DangXuat(request $rq)
+    public function DangXuat(request $rq)
     {
     	$rq->Session()->flush();
     	return redirect('');
+    }
+
+    public function kiemTraMua(request $rq)
+    {
+        if(!$rq->Session()->has('user'))
+            return redirect('dang-nhap');
+        else
+            return redirect('mua');
     }
 }

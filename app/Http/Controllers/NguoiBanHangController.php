@@ -75,7 +75,7 @@ class NguoiBanHangController extends Controller
     public function getViewEditSanPham($id, request $rq)
     {
     	$kt = new SanPhamModel();
-    	$kq['duLieu'] = $kt->getSanPhamById($rq->session()->get('idUser'), $id);
+    	$kq['duLieu'] = $kt->getSanPhamById($id);
     	return view('nguoi-ban-hang.sua-san-pham')->with($kq);
     }
 
@@ -107,7 +107,7 @@ class NguoiBanHangController extends Controller
     	*/
     	$kt = new SanPhamModel();
     	//$kq = $kt->issetSanPham($data["idUser"], $data["name"]);
-    	$kq = $kt->getSanPhamById($data["idUser"], $id);
+    	$kq = $kt->getSanPhamById($id);
     	if($kq[0]['name'] != $data['name'])
     	{
     		$kq2 = $kt->issetSanPham($data["idUser"], $data["name"]);

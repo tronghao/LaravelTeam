@@ -22,7 +22,7 @@
 					print_r($value)
 				@endphp
 			</pre>
-			<a href="{{ asset('ban-hang/sua-san-pham/'.$value["id"]) }}">Mua</a>
+			<a href="{{ asset('kiem-tra-mua') }}">Mua</a>
 			<br/>
 		@endforeach
 		<!-- jQuery -->
