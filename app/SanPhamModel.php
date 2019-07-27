@@ -28,10 +28,10 @@ class SanPhamModel extends Model
         return $kq;
     }
 
-    public function getSanPhamById($idUser, $id)
+    public function getSanPhamById($id)
     {
         $kt = new SanPhamModel();
-        $kq = $kt->whereRaw("idUser = ? and id = ?", [$idUser, $id])->get()->toArray();
+        $kq = $kt->whereRaw("id = ?", [$id])->get()->toArray();
         return $kq;
     }
 }

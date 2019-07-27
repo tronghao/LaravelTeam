@@ -2,9 +2,11 @@
 
 @section('noi-dung')
 	@if(isset($duLieu))
-		@php
-			print_r($duLieu)
-		@endphp
+		<pre>
+			@php
+				print_r($duLieu)
+			@endphp
+		</pre>
 		<form action="{{ asset('ban-hang/sua-san-pham/'.$duLieu[0]['id']) }}" method="post">
 			{{ csrf_field() }}
 	    	<br/> <br/> Name: <input type="text" name="name" value="{{$duLieu[0]['name']}}">

@@ -62,7 +62,20 @@
 		<a href="#">Đăng Ký</a>
 		<a href="#">Đăng Nhập</a>
 		<h1 class="text-center">Trang Chủ</h1>
+<<<<<<< HEAD
         
+=======
+
+		@foreach($duLieu as $value)
+			<pre>
+				@php
+					print_r($value)
+				@endphp
+			</pre>
+			<a href="{{ asset('kiem-tra-mua') }}">Mua</a>
+			<br/>
+		@endforeach
+>>>>>>> b2447f014a450c76e0ea18eb90d08cd4bb7bdaa8
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->
