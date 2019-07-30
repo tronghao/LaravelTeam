@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Trang Chủ</title>
-         <link rel="stylesheet" type="text/css" href="public/css/trangchu.css">
+         <link rel="stylesheet" type="text/css" href=" {{ asset('public/css/trangchu.css') }}">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -51,21 +51,17 @@
             <button type="submit" class="btn btn-default">TimKiem</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dang Ky</a></li>
-            <li><a href="#">Dang Nhap</a></li>
+            <li><a href=" {{ asset('dang-ky') }}">Đăng Ký</a></li>
+            <li><a href=" {{ asset('dang-nhap') }}">Đăng Nhập</a></li>
             
           </ul>
         </div><!-- /.navbar-collapse -->
       </div>
     </nav>
 	<body>
-		<a href="#">Đăng Ký</a>
-		<a href="#">Đăng Nhập</a>
 		<h1 class="text-center">Trang Chủ</h1>
-<<<<<<< HEAD
-        
-=======
-
+		
+		{{--dữ liệu mọi đơn hàng--}}
 		@foreach($duLieu as $value)
 			<pre>
 				@php
@@ -75,7 +71,7 @@
 			<a href="{{ asset('kiem-tra-mua') }}">Mua</a>
 			<br/>
 		@endforeach
->>>>>>> b2447f014a450c76e0ea18eb90d08cd4bb7bdaa8
+
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->

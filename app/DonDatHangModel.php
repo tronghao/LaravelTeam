@@ -7,13 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 class DonDatHangModel extends Model
 {
     protected $table = 'DonDatHang';
-    protected $fillable = ['idNguoiBanHang', 'idNguoiMuaHang','idSanPham', 'soLuong'];
+    protected $fillable = ['idNguoiBan', 'idNguoiMua','idSanPham', 'soLuong'];
     public $timestamps = false;
 
-    public function getDonHangCuaNguoiMua($id)
+    public function getDonHangCuaNguoiMua($idNguoiMua)
     {
     	$kt = new DonDatHangModel();
-    	$kq = $kt->join('SanPham.id', '=', 'DonDatHang.id')->where('idNguoiMuaHang', '=' , $id)->get()->toArray();
+    	$kq = $kt->join('SanPham', 'DonDatHang.idSanPham' , "=", "SanPham.id")->where('idNguoiMua', '=' , $idNguoiMua)->get()->toArray();
     	return $kq;
+    }
+
+    public function getDonHangCuaNguoiBan($idNguoiBan)
+    {
+    	$kt = new DonDatHangModel();
+    	$kq = $kt->join('SanPham', 'DonDatHang.idSanPham' , "=", "SanPham.id")->where('idNguoiBan', '=' , $idNguoiBan)->get()->toArray();
+    	return $kq;
+    }
+    public function xoaDonHang($idNguoiMua, $idSanPham)
+    {
+    	$kt = new DonDatHangModel();
+    	$kt->whereRaw('idNguoiMua = ? and idSanPham = ?', [$idNguoiMua, $idSanPham])->delete();
     }
 }

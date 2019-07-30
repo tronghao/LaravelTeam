@@ -28,6 +28,7 @@ Route::group(['prefix'=>'ban-hang'], function(){
 	Route::get('sua-san-pham/{id}', "NguoiBanHangController@getViewEditSanPham");
 	Route::post('sua-san-pham/{id}', "NguoiBanHangController@editSanPham");
 	Route::get('xoa-san-pham/{id}', "NguoiBanHangController@deleteSanPham");
+	Route::get('cac-don-hang', "NguoiBanHangController@getAllDonHang");
 });
 
 Route::group(['prefix'=>'mua-hang'], function(){
@@ -36,6 +37,6 @@ Route::group(['prefix'=>'mua-hang'], function(){
 	Route::post('mua-san-pham/{id}', "NguoiMuaHangController@muaSanPham");
 	//Route::post('them-san-pham', "NguoiBanHangController@postAddSanPham");
 	Route::get('cac-don-hang', "NguoiMuaHangController@getAllDonHang");
-	//Route::post('sua-san-pham/{id}', "NguoiBanHangController@editSanPham");
+	Route::get('huy-don-hang/{idNguoiMua}/{idSanPham}', "NguoiMuaHangController@huyDonHang");
 	//Route::get('xoa-san-pham/{id}', "NguoiBanHangController@deleteSanPham");
 });

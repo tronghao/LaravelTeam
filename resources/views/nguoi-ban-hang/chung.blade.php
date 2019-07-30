@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="public/css/chung.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/chung.css') }}">
     </head>
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
@@ -62,6 +62,7 @@
      <p>Trang Người Bán Hàng</p>
   <p><a href="{{ asset('ban-hang/home') }}">Home</a></p>
   <p><a href="{{ asset('ban-hang/them-san-pham') }}">Thêm sản phẩm</a></p>
+  <p><a href="{{ asset('ban-hang/cac-don-hang') }}">Các đơn hàng</a></p>
   <p><a href="{{ asset('dang-xuat') }}">Đăng Xuất</a></p>
   @yield('noi-dung')
     <!-- jQuery -->

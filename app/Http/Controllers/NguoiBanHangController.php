@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\UserModel;
 use App\SanPhamModel;
+use App\DonDatHangModel;
 
 class NguoiBanHangController extends Controller
 {
@@ -135,5 +136,12 @@ class NguoiBanHangController extends Controller
     	$cate = new SanPhamModel();
     	$cate->destroy($id);
     	return redirect('ban-hang/home');
+    }
+
+    public function getAllDonHang(request $rq)
+    {
+    	$kt = new DonDatHangModel();
+    	$kq['duLieu'] = $kt->getDonHangCuaNguoiBan($rq->session()->get('idUser'));
+    	return view("nguoi-ban-hang.quan-ly-don-hang")->with($kq);
     }
 }

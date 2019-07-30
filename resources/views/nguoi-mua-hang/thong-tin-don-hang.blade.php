@@ -13,7 +13,7 @@
 	    	<br/> <br/> <input type="submit" name="them" value="Xác Nhận Mua">
 		</form>
 		<br/>
-		<p><a href="{{ asset('mua-hang/home') }}">Bỏ đơn hàng</a></p>
+		<p><a href="{{ asset('mua-hang/home') }}">Hủy đơn hàng</a></p>
 	@else
 		@if(isset($info))
 			{{ $info }}
