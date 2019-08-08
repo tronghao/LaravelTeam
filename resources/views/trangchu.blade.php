@@ -66,7 +66,6 @@
       </div>
     </nav>
 	<body>
-<<<<<<< HEAD
     <div class="carousel container">
 		<div id="carousel-id" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -115,7 +114,6 @@
 			<a href="{{ asset('kiem-tra-mua') }}">Mua</a>
 			<br/>
 		@endforeach
-<<<<<<< HEAD
   </div>
   <div class="col-lg-3">
     @foreach($duLieu as $value)
