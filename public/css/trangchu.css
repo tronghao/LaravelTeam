@@ -2,10 +2,46 @@
 body{
 	margin:0;
 	padding:0;
-	background: #C3CAD5;
+	background-image: linear-gradient(to right top, #6a7990, #566788, #44547f, #354274, #292f69);
 	font-family: 'Work Sans', sans-serif;
 	font-weight: 800;
 }
 .navbar-default{
 	background-color: #E4F958;
+
+
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #e7e7e7
+    background-color: #D1DBEB;
+}
+.carousel-container{
+	float: left;
+	width: 86.384%;
+	height: 354px;
+	overflow: hidden;
+	position: relative;
+	background: #f0f0f0;
+	margin-bottom: 15px;
+
+}
+.carousel-inner{
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+
+}
+#carousel-id{
+	width: 850px;
+	height: 330px;
+	margin: 10px;
+	margin-bottom: 5px;
+}
+.carousel-inner img{
+	justify-content: center;
+	float: flex;
+	width: 100%;
+	margin: 10px;
+	padding:10px;
+
 }

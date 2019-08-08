@@ -5,7 +5,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Trang Chủ</title>
-         <link rel="stylesheet" type="text/css" href="public/css/trangchu.css">
+        
+         <link href="{{ asset('public/css/trangchu.css') }}" rel="stylesheet">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -30,16 +31,16 @@
             <li class="active"><a href="#">Deal Hot</a></li>
             <li><a href="#">Qua Tang</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">San Pham Cua SIT.TV <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản Phẩm Cua SIT.TV <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Gia Dung</a></li>
-                <li><a href="#">Dien Tu</a></li>
-                <li><a href="#">Quan Ao</a></li>
-                <li><a href="#">Linh Kien</a></li>
-                <li><a href="#">May Tinh - Dien Thoai</a></li>
-                <li><a href="#">Sach - Vo - But</a></li>
-                <li><a href="#">May Quay - May Anh</a></li>
-                <li><a href="#">Hang Quoc Te</a></li>
+                <li><a href="#">Gia Dụng</a></li>
+                <li><a href="#">Điện Tử</a></li>
+                <li><a href="#">Quần Áo</a></li>
+                <li><a href="#">Linh Kiện</a></li>
+                <li><a href="#">Máy Tính - Điện Thoại</a></li>
+                <li><a href="#">Sách - Vở - Bút</a></li>
+                <li><a href="#">Máy Quay - Máy Ảnh</a></li>
+                <li><a href="#">Hàng Quốc Tế</a></li>
 
               </ul>
             </li>
@@ -51,21 +52,49 @@
             <button type="submit" class="btn btn-default">TimKiem</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dang Ky</a></li>
-            <li><a href="#">Dang Nhap</a></li>
+            <li><a href="#">Đăng Ký</a></li>
+            <li><a href="#">Đăng Nhập</a></li>
             
           </ul>
         </div><!-- /.navbar-collapse -->
       </div>
     </nav>
 	<body>
-		<a href="#">Đăng Ký</a>
-		<a href="#">Đăng Nhập</a>
-		<h1 class="text-center">Trang Chủ</h1>
-<<<<<<< HEAD
-        
-=======
-
+    <div class="carousel container">
+		<div id="carousel-id" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-id" data-slide-to="0" class=""></li>
+        <li data-target="#carousel-id" data-slide-to="1" class=""></li>
+        <li data-target="#carousel-id" data-slide-to="2" class="active"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item">
+          <img src="public/images/anh1.png">
+          
+        </div>
+        <div class="item">
+          <img src="public/images/anh2.png">
+          
+        </div>
+        <div class="item active">
+          <img src="public/images/anh3.png">
+          <div class="container">
+            
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+    
+  </div><!-- container case-->
+  
+  <div class="container">
+    <div class="the-tin">
+    <h1> SẢN PHẨM TRONG TUẦN</h1>
+  </div>
+  <div class="row ">
+    <div class="col-lg-3">
 		@foreach($duLieu as $value)
 			<pre>
 				@php
@@ -75,7 +104,70 @@
 			<a href="{{ asset('kiem-tra-mua') }}">Mua</a>
 			<br/>
 		@endforeach
->>>>>>> b2447f014a450c76e0ea18eb90d08cd4bb7bdaa8
+  </div>
+  <div class="col-lg-3">
+    @foreach($duLieu as $value)
+      <pre>
+        @php
+          print_r($value)
+        @endphp
+      </pre>
+      <a href="{{ asset('kiem-tra-mua') }}">Mua</a>
+      <br/>
+    @endforeach
+  </div>
+  <div class="col-lg-3">
+    @foreach($duLieu as $value)
+      <pre>
+        @php
+          print_r($value)
+        @endphp
+      </pre>
+      <a href="{{ asset('kiem-tra-mua') }}">Mua</a>
+      <br/>
+    @endforeach
+  </div>
+  </div>
+  <div class="the-tin">
+  <h1>SẢN PHẨM TRONG THÁNG</h1>
+  </div>
+  <div class="container">
+  <div class="row ">
+    <div class="col-lg-3">
+    @foreach($duLieu as $value)
+      <pre>
+        @php
+          print_r($value)
+        @endphp
+      </pre>
+      <a href="{{ asset('kiem-tra-mua') }}">Mua</a>
+      <br/>
+    @endforeach
+  </div>
+  <div class="col-lg-3">
+    @foreach($duLieu as $value)
+      <pre>
+        @php
+          print_r($value)
+        @endphp
+      </pre>
+      <a href="{{ asset('kiem-tra-mua') }}">Mua</a>
+      <br/>
+    @endforeach
+  </div>
+  <div class="col-lg-3">
+    @foreach($duLieu as $value)
+      <pre>
+        @php
+          print_r($value)
+        @endphp
+      </pre>
+      <a href="{{ asset('kiem-tra-mua') }}">Mua</a>
+      <br/>
+    @endforeach
+  </div>
+  </div>
+</div><!--contain body-->
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->

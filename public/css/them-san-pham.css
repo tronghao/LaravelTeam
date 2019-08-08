@@ -3,21 +3,25 @@ body{
 	padding:0;
 	background-color: #0DAFC3;
 	font-family: "Roboto", sans-serif;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+	
 }
 input{
 	background: #DD7580;
 	margin: 1rem 0;
+}
+.noidung{
+	width: 120px;
+	height: 220px;
+	justify-content: center;
+	float: left;
+	border-top: 10px;
+	
 
 }
+
 form{
 	background: #F5F8F9;
 	padding: 1rem 2rem;
 	box-shadow: 4px 4px 12px rgba(0,0,0,2);
 	border-radius: 1rem;
-	
-
-}
+	}
