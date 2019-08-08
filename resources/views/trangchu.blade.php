@@ -5,8 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Trang Chủ</title>
+<<<<<<< HEAD
         
          <link href="{{ asset('public/css/trangchu.css') }}" rel="stylesheet">
+=======
+         <link rel="stylesheet" type="text/css" href=" {{ asset('public/css/trangchu.css') }}">
+>>>>>>> 375c8dc5bc7d10d39595be9eb1c3d92cd827b338
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -52,14 +56,20 @@
             <button type="submit" class="btn btn-default">TimKiem</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
             <li><a href="#">Đăng Ký</a></li>
             <li><a href="#">Đăng Nhập</a></li>
+=======
+            <li><a href=" {{ asset('dang-ky') }}">Đăng Ký</a></li>
+            <li><a href=" {{ asset('dang-nhap') }}">Đăng Nhập</a></li>
+>>>>>>> 375c8dc5bc7d10d39595be9eb1c3d92cd827b338
             
           </ul>
         </div><!-- /.navbar-collapse -->
       </div>
     </nav>
 	<body>
+<<<<<<< HEAD
     <div class="carousel container">
 		<div id="carousel-id" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -95,6 +105,11 @@
   </div>
   <div class="row ">
     <div class="col-lg-3">
+=======
+		<h1 class="text-center">Trang Chủ</h1>
+		
+		{{--dữ liệu mọi đơn hàng--}}
+>>>>>>> 375c8dc5bc7d10d39595be9eb1c3d92cd827b338
 		@foreach($duLieu as $value)
 			<pre>
 				@php
@@ -104,6 +119,7 @@
 			<a href="{{ asset('kiem-tra-mua') }}">Mua</a>
 			<br/>
 		@endforeach
+<<<<<<< HEAD
   </div>
   <div class="col-lg-3">
     @foreach($duLieu as $value)
@@ -168,6 +184,9 @@
   </div>
   </div>
 </div><!--contain body-->
+=======
+
+>>>>>>> 375c8dc5bc7d10d39595be9eb1c3d92cd827b338
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->

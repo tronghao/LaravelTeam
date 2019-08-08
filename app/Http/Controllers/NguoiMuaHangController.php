@@ -30,7 +30,7 @@ class NguoiMuaHangController extends Controller
     				'idNguoiMua' => $rq->session()->get('idUser'),
     				'idNguoiBan' => '',
     				'idSanPham' => $id,
-    				'soLuong' => $rq->soLuong,
+    				'soLuongDatHang' => $rq->soLuong,
     			);
     	$kt = new SanPhamModel();
     	$kq = $kt->getSanPhamById($id);
@@ -40,15 +40,22 @@ class NguoiMuaHangController extends Controller
     	$datHang->idNguoiMua = $data["idNguoiMua"];
     	$datHang->idNguoiBan = $data["idNguoiBan"];
     	$datHang->idSanPham = $data["idSanPham"];
-    	$datHang->soLuong = $data["soLuong"];
+    	$datHang->soLuongDatHang = $data["soLuongDatHang"];
     	$datHang->save();
     	return view('nguoi-mua-hang.thong-tin-don-hang')->with('info',"Đặt Hàng Thành Công");
     }
 
-    public function getAllDonHang()
+    public function getAllDonHang(request $rq)
     {
     	$kt = new DonDatHangModel();
-    	
-    	return view();
+    	$kq["duLieu"] = $kt->getDonHangCuaNguoiMua($rq->session()->get('idUser'));
+    	return view("nguoi-mua-hang.quan-ly-don-hang")->with($kq);
+    }
+
+    public function huyDonHang($idNguoiMua, $idSanPham)
+    {
+    	$kt = new DonDatHangModel();
+    	$kt->xoaDonHang($idNguoiMua, $idSanPham);
+    	return redirect("mua-hang/cac-don-hang");
     }
 }

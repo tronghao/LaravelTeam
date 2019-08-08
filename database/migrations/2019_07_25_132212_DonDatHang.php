@@ -16,7 +16,7 @@ class DonDatHang extends Migration
             $table->integer('idNguoiMua');
             $table->integer('idNguoiBan');
             $table->integer('idSanPham');
-            $table->integer('soLuong');
+            $table->integer('soLuongDatHang');
             $table->timestamps();
         });
     }
