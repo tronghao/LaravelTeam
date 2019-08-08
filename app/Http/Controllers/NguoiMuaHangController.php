@@ -24,6 +24,11 @@ class NguoiMuaHangController extends Controller
     	return view('nguoi-mua-hang.thong-tin-don-hang')->with($kq);
     }
 
+    // thêm địa chỉ giao hàng
+    // Khi đặt hàng sẽ chờ xác nhận - chỉ nhập 1 lần lưu vào csdl
+    // đã xác nhận
+    // đang vận chuyển
+    // đã giao hàng
     public function muaSanPham($id, request $rq)
     {
     	$data = array(

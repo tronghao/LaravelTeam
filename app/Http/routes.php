@@ -21,7 +21,7 @@ Route::get('kiem-tra-mua', 'UserController@kiemTraMua');
 
 
 
-Route::group(['prefix'=>'ban-hang'], function(){
+Route::group(['prefix'=>'ban-hang', 'middleware'=>'NguoiBanHang'], function(){
 	Route::get('home', 'NguoiBanHangController@home');
 	Route::get('them-san-pham', "NguoiBanHangController@getAddSanPham");
 	Route::post('them-san-pham', "NguoiBanHangController@postAddSanPham");
@@ -31,7 +31,7 @@ Route::group(['prefix'=>'ban-hang'], function(){
 	Route::get('cac-don-hang', "NguoiBanHangController@getAllDonHang");
 });
 
-Route::group(['prefix'=>'mua-hang'], function(){
+Route::group(['prefix'=>'mua-hang', 'middleware' => 'NguoiMuaHang'], function(){
 	Route::get('home', 'NguoiMuaHangController@home');
 	Route::get('mua-san-pham/{id}', "NguoiMuaHangController@getViewMuaSanPham");
 	Route::post('mua-san-pham/{id}', "NguoiMuaHangController@muaSanPham");
