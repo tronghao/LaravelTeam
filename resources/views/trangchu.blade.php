@@ -5,12 +5,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Trang Chủ</title>
-
-         <link rel="stylesheet" type="text/css" href=" {{ asset('public/css/trangchu.css') }}">
+    <link rel="stylesheet" type="text/css" href=" {{ asset('public/css/trangchu.css') }}">
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+ 
 		
 	</head>
 	<nav class="navbar navbar-default" role="navigation">
@@ -18,7 +17,7 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">SIT</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -32,7 +31,7 @@
             <li class="active"><a href="#">Deal Hot</a></li>
             <li><a href="#">Qua Tang</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản Phẩm Cua SIT.TV <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản Phẩm Của SIT.TV <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Gia Dụng</a></li>
                 <li><a href="#">Điện Tử</a></li>
@@ -50,7 +49,7 @@
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search">
             </div>
-            <button type="submit" class="btn btn-default">TimKiem</button>
+            <button type="submit" class="btn btn-default">Tìm Kiếm</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
 
