@@ -8,21 +8,24 @@
     <link rel="stylesheet" type="text/css" href=" {{ asset('public/css/trangchu.css') }}">
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
- 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		
 	</head>
 	<nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <i class="fas fa fa-align-justify navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" style="font-size: 30px;"> 
             <span class="sr-only">SIT</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">SIT.TV</a>
+          </i> 
+          <a class="navbar-brand"  href="#">SIT.TV</a>
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,9 +56,6 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
 
-            <li><a href="#">Đăng Ký</a></li>
-            <li><a href="#">Đăng Nhập</a></li>
-
             <li><a href=" {{ asset('dang-ky') }}">Đăng Ký</a></li>
             <li><a href=" {{ asset('dang-nhap') }}">Đăng Nhập</a></li>
 
@@ -65,6 +65,9 @@
       </div>
     </nav>
 	<body>
+    <div class="hinhanh">
+      <h1>Hao trong</h1>
+    </div>
     <div class="carousel container">
 		<div id="carousel-id" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -179,7 +182,9 @@
 </div><!--contain body-->
 
 		<!-- jQuery -->
-		<script src="//code.jquery.com/jquery.js"></script>
+		<script src="{{ asset('//code.jquery.com/jquery.js')}}"></script>
+    
+ 
 		<!-- Bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

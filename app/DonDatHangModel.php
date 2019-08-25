@@ -28,4 +28,20 @@ class DonDatHangModel extends Model
     	$kt = new DonDatHangModel();
     	$kt->whereRaw('idNguoiMua = ? and idSanPham = ?', [$idNguoiMua, $idSanPham])->delete();
     }
+
+    public function daDatSanPhamNay($idNguoiMua, $idSanPham)
+    {
+        $kt = new DonDatHangModel();
+        $kq = $kt->join('SanPham', 'DonDatHang.idSanPham' , "=", "SanPham.id")->whereRaw('idNguoiMua = ? and idSanPham = ?', [$idNguoiMua, $idSanPham])->get()->count();
+        if($kq > 0)
+            return true;
+        else return false;
+    }
+
+    public function laySoLuongSanPham($idNguoiMua, $idSanPham)
+    {
+        $kt = new DonDatHangModel();
+        $kq = $kt->whereRaw('idNguoiMua = ? and idSanPham = ?', [$idNguoiMua, $idSanPham])->get()->toArray();
+        return $kq[0]['soLuongDatHang'];
+    }
 }
