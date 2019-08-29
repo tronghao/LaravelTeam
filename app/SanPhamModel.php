@@ -24,7 +24,7 @@ class SanPhamModel extends Model
     public function getAllSanPhamCuaUser($idUser)
     {
         $kt = new SanPhamModel();
-        $kq = $kt->whereRaw("idUser = ?", [$idUser])->get()->toArray();
+        $kq = $kt->whereRaw("idUser = ?", [$idUser])->orderBy('id', 'DESC')->get()->toArray();
         return $kq;
     }
 

@@ -13,14 +13,14 @@ class DonDatHangModel extends Model
     public function getDonHangCuaNguoiMua($idNguoiMua)
     {
     	$kt = new DonDatHangModel();
-    	$kq = $kt->join('SanPham', 'DonDatHang.idSanPham' , "=", "SanPham.id")->where('idNguoiMua', '=' , $idNguoiMua)->get()->toArray();
+    	$kq = $kt->join('SanPham', 'DonDatHang.idSanPham' , "=", "SanPham.id")->where('idNguoiMua', '=' , $idNguoiMua)->orderBy('DonDatHang.id', 'DESC')->get()->toArray();
     	return $kq;
     }
 
     public function getDonHangCuaNguoiBan($idNguoiBan)
     {
     	$kt = new DonDatHangModel();
-    	$kq = $kt->join('SanPham', 'DonDatHang.idSanPham' , "=", "SanPham.id")->where('idNguoiBan', '=' , $idNguoiBan)->get()->toArray();
+    	$kq = $kt->join('SanPham', 'DonDatHang.idSanPham' , "=", "SanPham.id")->where('idNguoiBan', '=' , $idNguoiBan)->orderBy('DonDatHang.id', 'DESC')->get()->toArray();
     	return $kq;
     }
     public function xoaDonHang($idNguoiMua, $idSanPham)
