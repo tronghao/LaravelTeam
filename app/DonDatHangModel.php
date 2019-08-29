@@ -32,7 +32,7 @@ class DonDatHangModel extends Model
     public function daDatSanPhamNay($idNguoiMua, $idSanPham)
     {
         $kt = new DonDatHangModel();
-        $kq = $kt->join('SanPham', 'DonDatHang.idSanPham' , "=", "SanPham.id")->whereRaw('idNguoiMua = ? and idSanPham = ?', [$idNguoiMua, $idSanPham])->get()->count();
+        $kq = $kt->join('SanPham', 'DonDatHang.idSanPham' , "=", "SanPham.id")->whereRaw('idNguoiMua = ? and idSanPham = ? and trangThaiDonHang = ?', [$idNguoiMua, $idSanPham, 'Đang xử lý'])->get()->count(); 
         if($kq > 0)
             return true;
         else return false;

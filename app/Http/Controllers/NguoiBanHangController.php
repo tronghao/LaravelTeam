@@ -144,4 +144,20 @@ class NguoiBanHangController extends Controller
     	$kq['duLieu'] = $kt->getDonHangCuaNguoiBan($rq->session()->get('idUser'));
     	return view("nguoi-ban-hang.quan-ly-don-hang")->with($kq);
     }
+
+    public function setDangVanChuyen($id)
+    {
+        $donHang = DonDatHangModel::find($id);
+        $donHang->trangThaiDonHang = 'Đang Vận Chuyển';
+        $donHang->save();
+        return redirect('ban-hang/cac-don-hang');
+    }
+
+    public function setDaGiaoHang($id)
+    {
+        $donHang = DonDatHangModel::find($id);
+        $donHang->trangThaiDonHang = 'Đã Giao Hàng';
+        $donHang->save();
+        return redirect('ban-hang/cac-don-hang');
+    }
 }

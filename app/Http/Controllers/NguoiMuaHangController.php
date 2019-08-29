@@ -36,6 +36,7 @@ class NguoiMuaHangController extends Controller
     				'idNguoiBan' => '',
     				'idSanPham' => $id,
     				'soLuongDatHang' => $rq->soLuong,
+                    'trangThaiDonHang' => 'Đang xử lý',
     			);
     	$kt = new SanPhamModel();
     	$kq = $kt->getSanPhamById($id);
@@ -55,6 +56,7 @@ class NguoiMuaHangController extends Controller
             $datHang->idNguoiBan = $data["idNguoiBan"];
             $datHang->idSanPham = $data["idSanPham"];
             $datHang->soLuongDatHang = $data["soLuongDatHang"];
+            $datHang->trangThaiDonHang = $data["trangThaiDonHang"];
             $datHang->save();
             return view('nguoi-mua-hang.thong-tin-don-hang')->with('info',"Đặt Hàng Thành Công");
         }
