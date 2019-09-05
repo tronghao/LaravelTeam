@@ -197,3 +197,6 @@ h2 {
   font-weight:normal; 
   color:#fff; 
 }
+.navbar-default{
+  background-color: black;
+}

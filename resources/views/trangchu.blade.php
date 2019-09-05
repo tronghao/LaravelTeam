@@ -22,12 +22,17 @@
         <ul class="nav navbar-nav">
           <li><a href="#">Trang Chủ</a></li>
           <li><a href="#">Sản Phẩm</a></li>
+          <li><a href="#">Dịch vụ</a></li>
+          <li><a href="#">Chăm sóc khách hàng</a></li>
+          <li><a href="#">Training trong tuần</a></li>
+          <li><a href="#">Quản lý </a></li>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form" role="search">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Tìm Kiếm">
           </div>
         </form>
+        
         <div class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Quản lý</a></li>
@@ -35,7 +40,10 @@
           <li><a href=" {{ asset('dang-nhap') }}">Đăng Nhập</a></li>
         </ul>
       </div>
+
       </div><!-- /.navbar-collapse -->
+    </br>
+      
     </div>
   </nav>
 	<body>
