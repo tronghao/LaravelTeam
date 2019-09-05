@@ -75,19 +75,26 @@
     </div>
     </div>
     
-   
-  </body>
-  
-  
-		
+	
 		{{--dữ liệu mọi đơn hàng--}}
 
 		@foreach($duLieu as $value)
-			<pre>
-				@php
-					print_r($value)
-				@endphp
-			</pre>
+			<div class="container">
+        <div class="w3-card-4 w3-dark-grey" style="width:50%">
+
+          <div class="w3-container w3-center">
+            <h3>{{ $value['name'] }}</h3>
+            <img src=" {{ $value['srcImg'] }} " alt="Avatar" style="width:20%">
+            <h5>{{ $value['moTa'] }}</h5>
+
+            <div class="w3-section">
+              <button class="w3-button w3-green"><del>{{ $value['giaKhuyenMai'] }}</del></button>
+              <button class="w3-button w3-red">{{ $value['giaGoc'] }}</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
 			<a href="{{ asset('kiem-tra-mua') }}">Mua</a>
 			<br/>
 		@endforeach
