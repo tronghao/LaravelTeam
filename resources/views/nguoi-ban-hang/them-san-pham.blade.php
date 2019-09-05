@@ -12,7 +12,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('public/css/them-san-pham.css')}} ">
 
         {{--<link rel="stylesheet" type="text/css" href=" {{ asset('public/css/them-san-pham.css') }}">--}}
-
        
     </head>
     <body>

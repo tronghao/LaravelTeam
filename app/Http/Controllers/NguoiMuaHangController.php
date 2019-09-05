@@ -36,18 +36,30 @@ class NguoiMuaHangController extends Controller
     				'idNguoiBan' => '',
     				'idSanPham' => $id,
     				'soLuongDatHang' => $rq->soLuong,
+                    'trangThaiDonHang' => 'Đang xử lý',
     			);
     	$kt = new SanPhamModel();
     	$kq = $kt->getSanPhamById($id);
     	$data["idNguoiBan"] = $kq[0]["idUser"];
 
-    	$datHang = new DonDatHangModel();
-    	$datHang->idNguoiMua = $data["idNguoiMua"];
-    	$datHang->idNguoiBan = $data["idNguoiBan"];
-    	$datHang->idSanPham = $data["idSanPham"];
-    	$datHang->soLuongDatHang = $data["soLuongDatHang"];
-    	$datHang->save();
-    	return view('nguoi-mua-hang.thong-tin-don-hang')->with('info',"Đặt Hàng Thành Công");
+        $kiemTraDonDatHang = new DonDatHangModel();
+        if($kiemTraDonDatHang->daDatSanPhamNay($data['idNguoiMua'], $data['idSanPham']) == true)
+        {
+            $tamDonDatHangModel = new DonDatHangModel(); 
+            $data['soLuongDatHang'] += $tamDonDatHangModel->laySoLuongSanPham($data['idNguoiMua'], $data['idSanPham']);
+            $datHang = DonDatHangModel::whereRaw('idNguoiMua = ? and idSanPham = ?', [$data['idNguoiMua'], $data['idSanPham']])->update(['soLuongDatHang' => $data['soLuongDatHang']]);
+            return view('nguoi-mua-hang.thong-tin-don-hang')->with('info',"Đặt Hàng Thành Công");
+        }else
+        {
+            $datHang = new DonDatHangModel();
+            $datHang->idNguoiMua = $data["idNguoiMua"];
+            $datHang->idNguoiBan = $data["idNguoiBan"];
+            $datHang->idSanPham = $data["idSanPham"];
+            $datHang->soLuongDatHang = $data["soLuongDatHang"];
+            $datHang->trangThaiDonHang = $data["trangThaiDonHang"];
+            $datHang->save();
+            return view('nguoi-mua-hang.thong-tin-don-hang')->with('info',"Đặt Hàng Thành Công");
+        }
     }
 
     public function getAllDonHang(request $rq)

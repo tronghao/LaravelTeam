@@ -13,10 +13,12 @@ class DonDatHang extends Migration
     public function up()
     {
         Schema::create('DonDatHang', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('idNguoiMua');
             $table->integer('idNguoiBan');
             $table->integer('idSanPham');
             $table->integer('soLuongDatHang');
+            $table->string('trangThaiDonHang'); //dang xu ly, dang van chuyen, da giao hang
             $table->timestamps();
         });
     }
