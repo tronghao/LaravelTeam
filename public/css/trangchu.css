@@ -2,7 +2,7 @@
 body{
 	margin:0;
 	padding:0;
-	background-image: linear-gradient(to right top, #6a7990, #566788, #44547f, #354274, #292f69);
+	background:#E0D7EF;
 	font-family: 'Impact', sans-serif;
 	font-weight: 800;
 }
@@ -118,4 +118,22 @@ body{
 }
 form{
 	align-content: center;
+}
+.giaKhuyenMai{
+	color: #FE2737;
+}
+.btn-success{
+	color: #FFFFFF;
+
+}
+.product-discount{
+	top:10px;
+	padding: 10px;
+	background-color: #F83A3A;
+	position: absolute;
+}
+.product-item{
+	padding-bottom: 20px;
+	margin: 5px;
+
 }

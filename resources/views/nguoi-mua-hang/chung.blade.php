@@ -39,32 +39,18 @@
       <thead>
         <tr>
           <th>TênSảnPhẩm</th>
-          <th>TìnhTrạng</th>
-          <th>NgàyMua</th>
-          <th>NhàCungCấp</th>
+          <th>Số Lượng </th>
+          <th>Thương Hiệu</th>
+          <th>Gía Cả</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>DT</td>
-          <td>New99%</td>
-          <td>25/08/19</td>
-          <td>SHOPDIENMAY</td>
-
-        </tr>
-        <tr>
-          <td>TuLạnh</td>
-          <td>Cũ</td>
-          <td>22/08/19</td>
-          <td>TPHCM</td>
-          
-        </tr>
-        <tr>
-          <td>Dieuhoa</td>
-          <td>New100%</td>
-          <td>25/08/19</td>
-          <td>Dienlanh.com</td>
-        </tr>
+          <td><h5 class="card-title">{{ $value['name'] }}</h5></td>
+          <td><h5 class="card-title">{{ $value['soLuong'] }}</h5></td>
+          <td><h5 class="card-title">{{ $value['thuongHieu'] }}</h5></td>
+          <td><h5 class="card-title">{{ $value['giaGoc'] }}</h5></td>
+      </tr>
       </tbody>
     </table>
       </div>
